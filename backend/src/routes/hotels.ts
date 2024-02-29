@@ -37,7 +37,7 @@ router.get("/search", async (req: Request, res: Response) => {
        
          const hotels = await Hotel.find(query)
         .sort(sortOptions)
-         .skip(skip)
+        .skip(skip)
         .limit(pageSize);
 
        const total =await Hotel.countDocuments(query);

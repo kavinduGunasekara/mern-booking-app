@@ -8,9 +8,6 @@ import StarRatingFilter from "../components/StarRatingFilter";
 import HotelTypesFilter from "../components/HotelTypesFilter";
 import FacilitiesFilter from "../components/FacilitiesFilter";
 import PriceFilter from "../components/PriceFilter";
-//import HotelTypesFilter from "../components/HotelTypesFilter";
-//import FacilitiesFilter from "../components/FacilitiesFilter";
-//import PriceFilter from "../components/PriceFilter";
 
 const Search = () => {
   const search = useSearchContext();
@@ -71,9 +68,6 @@ const Search = () => {
     );
   };
 
-
- 
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
       <div className="rounded-lg border border-slate-300 p-5 h-fit sticky top-10">
@@ -85,22 +79,18 @@ const Search = () => {
             selectedStars={selectedStars}
             onChange={handleStarsChange}
           />
-           <HotelTypesFilter
+          <HotelTypesFilter
             selectedHotelTypes={selectedHotelTypes}
             onChange={handleHotelTypeChange}
           />
-
-         <FacilitiesFilter
+          <FacilitiesFilter
             selectedFacilities={selectedFacilities}
             onChange={handleFacilityChange}
           />
-
           <PriceFilter
             selectedPrice={selectedPrice}
             onChange={(value?: number) => setSelectedPrice(value)}
           />
-         
-          
         </div>
       </div>
       <div className="flex flex-col gap-5">
@@ -109,7 +99,6 @@ const Search = () => {
             {hotelData?.pagination.total} Hotels found
             {search.destination ? ` in ${search.destination}` : ""}
           </span>
-
           <select
             value={sortOption}
             onChange={(event) => setSortOption(event.target.value)}
@@ -124,7 +113,6 @@ const Search = () => {
               Price Per Night (high to low)
             </option>
           </select>
-         
         </div>
         {hotelData?.data.map((hotel) => (
           <SearchResultsCard hotel={hotel} />

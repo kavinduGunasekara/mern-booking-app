@@ -99,7 +99,7 @@ const SearchBar = () => {
         />
       </div>
       <div className="flex gap-1">
-      <button className="w-1/2 bg-green-600 text-white h-full p-2 font-bold text-xl hover:bg-blue-500 rounded-lg">
+      <button className="w-1/2 bg-green-600 text-white h-full p-2 font-bold text-xl hover:bg-green-500 rounded-lg ">
           Search
         </button>
         <button className="w-1/2 bg-red-600 text-white h-full p-2 font-bold text-xl hover:bg-red-500 rounded-lg">
