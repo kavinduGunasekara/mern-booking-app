@@ -35,7 +35,7 @@ const Detail = () => {
           <div className="h-[300px]">
             <img
               src={image}
-              alt={hotel.name}
+              alt={hotel.name} 
               className="rounded-md w-full h-full object-cover object-center"
             />
           </div>
@@ -50,7 +50,15 @@ const Detail = () => {
         ))}
       </div>
 
-     
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
+        <div className="whitespace-pre-line">{hotel.description}</div>
+        <div className="h-fit">
+          {/*<GuestInfoForm
+            pricePerNight={hotel.pricePerNight}
+            hotelId={hotel._id}
+          />*/}
+        </div>
+      </div>
         
       
     </div>
