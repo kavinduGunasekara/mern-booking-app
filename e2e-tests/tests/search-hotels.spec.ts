@@ -27,7 +27,7 @@ test("should show hotel search results", async ({ page }) => {
   await expect(page.getByText("Hotels found in Dublin")).toBeVisible();
   await expect(page.getByText("Dublin Getaways")).toBeVisible();
 });
-
+ 
 test("should show hotel detail", async ({ page }) => {
   await page.goto(UI_URL);
 
