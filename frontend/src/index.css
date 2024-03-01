@@ -1,3 +1,9 @@
+/* tailwind.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles */
+body {
+  background-color: #F8FAE5; /* Yellow color code */
+}
