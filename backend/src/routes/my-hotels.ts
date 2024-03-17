@@ -1,4 +1,3 @@
-//import Hotel, { HotelType } from "../models/hotel";
 import express, { Request, Response } from "express";
 import multer from "multer";
 import cloudinary from "cloudinary";
