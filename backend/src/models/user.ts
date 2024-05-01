@@ -22,3 +22,6 @@ import { UserType } from "../shared/types";
  const User = mongoose.model<UserType>("User" , userSchema);
 
  export default User;
+
+
+ //mvc

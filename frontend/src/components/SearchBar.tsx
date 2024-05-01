@@ -9,22 +9,30 @@ const SearchBar = () => {
   const navigate = useNavigate();
   const search = useSearchContext();
 
-  const [destination, setDestination] = useState<string>(search.destination);
-  const [checkIn, setCheckIn] = useState<Date>(search.checkIn);
-  const [checkOut, setCheckOut] = useState<Date>(search.checkOut);
-  const [adultCount, setAdultCount] = useState<number>(search.adultCount);
-  const [childCount, setChildCount] = useState<number>(search.childCount);
+  // Initialize state variables with null or appropriate default values
+  const [destination, setDestination] = useState<string>(search.destination || "");
+  const [checkIn, setCheckIn] = useState<Date | null>(search.checkIn || null);
+  const [checkOut, setCheckOut] = useState<Date | null>(search.checkOut || null);
+  const [adultCount, setAdultCount] = useState<number>(search.adultCount || 1);
+  const [childCount, setChildCount] = useState<number>(search.childCount || 0);
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    search.saveSearchValues(
-      destination,
-      checkIn,
-      checkOut,
-      adultCount,
-      childCount
-    );
+
+    // Validate and handle null values for checkIn and checkOut
+    const selectedCheckIn = checkIn || new Date(); // Use current date if checkIn is null
+    const selectedCheckOut = checkOut || new Date(); // Use current date if checkOut is null
+
+    search.saveSearchValues(destination, selectedCheckIn, selectedCheckOut, adultCount, childCount);
     navigate("/search");
+  };
+
+  const handleClear = () => {
+    setDestination("");
+    setCheckIn(null); // Use null to reset the date input
+    setCheckOut(null); // Use null to reset the date input
+    setAdultCount(1);
+    setChildCount(0);
   };
 
   const minDate = new Date();
@@ -99,10 +107,17 @@ const SearchBar = () => {
         />
       </div>
       <div className="flex gap-1">
-      <button className="w-1/2 bg-green-600 text-white h-full p-2 font-bold text-xl hover:bg-green-500 rounded-lg ">
+        <button
+          type="submit"
+          className="w-1/2 bg-green-600 text-white h-full p-2 font-bold text-xl hover:bg-green-500 rounded-lg"
+        >
           Search
         </button>
-        <button className="w-1/2 bg-red-600 text-white h-full p-2 font-bold text-xl hover:bg-red-500 rounded-lg">
+        <button
+          type="button"
+          onClick={handleClear}
+          className="w-1/2 bg-red-600 text-white h-full p-2 font-bold text-xl hover:bg-red-500 rounded-lg"
+        >
           Clear
         </button>
       </div>
