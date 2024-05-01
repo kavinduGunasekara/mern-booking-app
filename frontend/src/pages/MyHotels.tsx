@@ -29,6 +29,9 @@ const MyHotels = () => {
                 <Link to="/add-hotel" className="flex bg-green-400 text-white text-xl font-bold p-2 hover:bg-green-500 rounded-lg">
                     Add Hotel
                     </Link>
+                    <Link to="/" className="flex bg-orange-400 text-white text-xl font-bold p-2 hover:bg-red-500 rounded-lg">
+                    Back
+                    </Link>
             </span>
             <div className="grid grid-cols-1 gap-8">
                 {hotelData.map((hotel) => (
